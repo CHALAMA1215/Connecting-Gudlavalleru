@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connecting Gudlavalleru</title>
+    <style>
+   .background-video {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+    }
+    .overlay {
+        position: relative;
+        z-index: 1;
+        color: #03045e;
+        padding: 40px;
+        text-align: center;
+        margin-top: -60px;
+    }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #caf0f8; 
+            color: #03045e; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+    .header-content {
+        text-align: center;
+        padding: 15px 0;
+        color: #0077b6;
+        background-color: transparent;
+    }
+    h1 {
+        font-size: 3em;
+        margin-bottom: 10px;
+        color: #03045E; 
+    }
+
+        .content {
+            max-width: 800px;
+            padding: 20px;
+            margin: 15px auto;
+            border-radius: 10px;
+            background-color: #90e0ef; 
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .content h2 {
+            margin-top: 0;
+            color: #03045e; 
+        }
+
+        .content p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            line-height: 1.6;
+            color: #0077b6; 
+        }
+
+        .get-started-btn {
+            padding: 10px 20px;
+            font-size: 1.2em;
+            color: #caf0f8; 
+            background-color: #0077b6; 
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .get-started-btn:hover {
+            background-color: #00b4d8;
+        }
+	@keyframes flash {
+            0% { opacity: 1; }
+            50% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        .flashing-text {
+            font-size: 1.5em;
+            color: #0077b6;
+            animation: flash 1s infinite; 
+        }
+    </style>
+</head>
+<body>
+    <video autoplay loop muted playsinline class="background-video">
+        <source src="background.mp4" type="video/mp4">
+    </video>
+
+    <div class="overlay">
+        <header class="header-content">
+            <h1>Connecting Gudlavalleru</h1>
+	</header>
+	</div>
+
+    <div class="content">
+        <h2>About Us</h2>
+        <p>
+            Connecting Gudlavalleru is your one-stop platform to find and connect with trusted service providers 
+            in the Gudlavalleru community. Whether you're looking for a plumber, an electrician, or any other 
+            local service, we've got you covered.
+        </p>
+        <p>
+            Service providers can create profiles to showcase their services, and customers can easily 
+            search and book the services they need.
+        </p>
+	<p class="flashing-text">Dive in to be a part greater community by clicking the button below</p>
+        <a href="menu.html" class="get-started-btn">Get Started</a>
+    </div>
+</body>
+</html>

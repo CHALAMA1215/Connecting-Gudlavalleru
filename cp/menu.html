@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connecting Gudlavalleru</title>
+   <style>
+    .background-video {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+    }
+    .overlay {
+        position: relative;
+        z-index: 1;
+        color: #03045e;
+        padding: 40px;
+        text-align: center;
+        margin-top: -60px;
+    }
+    .header-content {
+        text-align: center;
+        padding: 15px 0;
+        color: #0077b6;
+        background-color: transparent;
+    }
+    h1 {
+        font-size: 3em;
+        margin-bottom: 10px;
+        color: #03045E; 
+    }
+    p {
+        font-size: 1.4em;
+        color: #001d3d; 
+    }
+    .menu-section {
+        display: flex;
+        justify-content: space-around;
+        gap: 20px;
+        margin: 30px 0;
+        flex-wrap: wrap;
+    }
+	
+    .menu-box {
+    background-color: #caf0f8; 
+    padding: 30px;
+    border: 2px solid #00b4d8;
+    border-radius: 15px;
+    color: #03045e; 
+    width: 280px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-top: -20px;
+}
+
+
+    .menu-box:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+    }
+
+    .menu-box h2 {
+        font-size: 1.8em;
+        margin-bottom: 20px;
+        color: #0077b6; 
+    }
+
+    button, select {
+        padding: 12px;
+        margin-top: 12px;
+        background-color: #00b4d8; 
+        color: #fefae0;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 1em;
+        width: 100%;
+        transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+        background-color: #0077b6;
+    }
+
+    select {
+        background-color: #ffffff;
+        color: #03045e; 
+        border: 2px solid #00b4d8;
+        border-radius: 5px;
+        font-size: 1em;
+    }
+
+    select:hover {
+        background-color: #caf0f8; 
+    }
+body, html {
+    overflow: hidden;
+    height: 100%;
+}
+label {
+    font-size: 20px;
+    display: block;
+    margin: 10px 0 5px;
+}
+
+
+</style>
+</head>
+<body>
+    <video autoplay loop muted playsinline class="background-video">
+        <source src="background.mp4" type="video/mp4">
+    </video>
+
+    <div class="overlay">
+        <header class="header-content">
+            <h1>Connecting Gudlavalleru</h1>
+            <p><marquee><b>One Stop Solution for All Community Services In Gudlavalleru</b></marquee></p>
+        </header>
+</div>
+        <!-- Menu Section -->
+        <section class="menu-section">
+                <div class="menu-box">
+                <h2>Service Provider</h2>
+                <button onclick="location.href='create_profile.php'">Create Profile</button>
+                <button onclick="location.href='view_profile.php'">View Profile</button>
+            </div>
+
+            <!-- Customer Section -->
+            <div class="menu-box">
+                <h2>Customer</h2>
+                <form action="search.php" method="GET">
+                    <label for="service">Select Service:</label>
+                    <select name="query" id="service" required>
+                        <option value="">Choose a Service</option>
+                        <option value="Plumbing">PLUMBING</option>
+                        <option value="Electricity">ELECTRICITY</option>
+                        <option value="Carpentry">CARPENTRY</option>
+			<option value="cleaning">CLEANING</option>
+                        <option value="Beauty">BEAUTY</option>
+                        <option value="mechanical">MECHANICAL</option>
+                        <option value="food">FOOD</option>
+                        <option value="water">WATER</option>
+                        <option value="health">HEALTH</option>
+                        <option value="education">EDUCATION</option>
+                        <option value="car rental">CAR RENTALS</option>
+                        <option value="house rental">HOUSE RENTALS</option>
+                    </select>
+                    <button type="submit">Search</button>
+                </form>
+            </div>
+        </section>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,79 @@
+create database
+query:
+CREATE DATABASE services;
+USE services;
+
+1. login table
+query:
+CREATE TABLE login (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(255) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL, -- Store hashed passwords
+    service_id INT NOT NULL, -- Foreign key to services
+    FOREIGN KEY (service_id) REFERENCES available_services(id) ON DELETE CASCADE
+);
+
+2.service table
+query:
+CREATE TABLE service (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    full_name VARCHAR(255) NOT NULL,
+    service_id INT NOT NULL, -- Foreign key to available_services
+    business_name VARCHAR(255),
+    mobile_number VARCHAR(15) NOT NULL,
+    location VARCHAR(255) NOT NULL,
+    experience INT NOT NULL, -- Experience in years
+    availability_timings VARCHAR(255) NOT NULL,
+    FOREIGN KEY (service_id) REFERENCES available_services(id) ON DELETE CASCADE
+);
+
+
+3. Available services table
+query:
+CREATE TABLE available_services (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL UNIQUE
+);
+
+4.specializations table
+query:
+CREATE TABLE specializations (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    service_id INT NOT NULL, -- Foreign key to available_services
+    name VARCHAR(255) NOT NULL,
+    FOREIGN KEY (service_id) REFERENCES available_services(id) ON DELETE CASCADE
+);
+
+5.specialization charges table
+query:
+CREATE TABLE specialization_charges (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    service_id INT NOT NULL, -- Foreign key to available_services
+    specialization_id INT NOT NULL, -- Foreign key to specializations
+    charges DECIMAL(10, 2) NOT NULL,
+    FOREIGN KEY (service_id) REFERENCES available_services(id) ON DELETE CASCADE,
+    FOREIGN KEY (specialization_id) REFERENCES specializations(id) ON DELETE CASCADE
+);
+
+6.bookings table
+query:
+CREATE TABLE bookings (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    service_id INT NOT NULL, -- Foreign key to available_services
+    customer_name VARCHAR(255) NOT NULL,
+    customer_phone VARCHAR(15) NOT NULL,
+    Service_date DATE NOT NULL,
+    FOREIGN KEY (service_id) REFERENCES available_services(id) ON DELETE CASCADE
+);
+
+7. Ratings table
+query:
+CREATE TABLE ratings (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    service_id INT NOT NULL, -- Foreign key to available_services
+    rating INT NOT NULL CHECK (rating BETWEEN 1 AND 5), -- Ratings between 1 and 5
+    comment TEXT, -- Optional user comment
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP, -- Timestamp of when the rating was submitted
+    FOREIGN KEY (service_id) REFERENCES available_services(id) ON DELETE CASCADE
+);
+
